@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/testKnowledge.css">
+</head>
+<body>
+	
+	<script type="text/javascript">
+		var score = 0; 
+		function increaseScore(){
+			score++;
+			console.log(score);
+		}
+	</script>
+
+	<div class='greeting'>Welcome! Test your knowledge on the latest ATP Rankings!</div>
+
+	<div id='game-wrapper'>
+		<div id='player-info-section'> 
+			<div id='player-name'>
+				<%=playerNameToRender%>
+
+			</div>
+			<div id='player-picture'>
+				<img src="<%=imageToRender %>"/>
+			</div>
+		</div>
+
+		<a href='testKnowledge/correctAnswer'><button onClick="increaseScore()"id='correct-answer'>
+			<%=playerRankToRender%>
+		</button></a>
+		<a href='testKnowledge/wrongAnswer'><button id='wrong-answer'>wrong</button></a>
+	</div>
+
+	<div class='score'></div>
+</body>
+</html>

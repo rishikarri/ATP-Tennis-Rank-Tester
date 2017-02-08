@@ -1,0 +1,15 @@
+/* line 1, ../../compass/sass/testKnowledge.scss */
+html {
+  color: green;
+}
+
+/* line 6, ../../compass/sass/testKnowledge.scss */
+.greeting {
+  text-align: center;
+}
+
+/* line 10, ../../compass/sass/testKnowledge.scss */
+#game-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
