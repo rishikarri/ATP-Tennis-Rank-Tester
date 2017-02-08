@@ -5,6 +5,7 @@ var config = require('../config/config.js');
 
 
 var playerRankingArray = []
+var score = 0; 
 
 var connection = mysql.createConnection({
 	host: config.host, 
@@ -43,9 +44,9 @@ router.post('/addNewPlayer', (req, res, next)=>{
 
 router.get('/testKnowledge/correctAnswer', (req, res, next)=>{
 	res.redirect('/testKnowledge');
-	var imageId = req.params.imageId;
-
-	console.log(imageId);
+	
+	score++;
+	
 })
 
 router.get('/testKnowledge/wrongAnswer' ,(req, res, next)=>{
@@ -63,12 +64,14 @@ router.get('/testKnowledge', (req, res, next)=>{
 		// res.json(results);
 
 		var indexToPull = 4;
+		
 
-		//logic for wrong answer
+		var playerRanking = results[indexToPull].player_ranking;
+		//logic for wrong answer - generate a wrong wrank, if the player rank is equal to the wrong rank, generate another wrong rank
 		
 		var wrongRank =  Math.floor(10 * Math.random()) + 1;
 
-		while(wrongRank !===indexToPull){
+		while(wrongRank === playerRanking){
 			wrongRank =  Math.floor(10 * Math.random()) + 1;			
 		}		
 		res.render('testKnowledge',
@@ -76,8 +79,8 @@ router.get('/testKnowledge', (req, res, next)=>{
 				imageToRender: '/images/'+results[indexToPull].imageId,
 				playerNameToRender: results[indexToPull].player_first_name + " " + results[indexToPull].player_last_name,
 				playerRankToRender: results[indexToPull].player_ranking,
-				wrongRankToRender: wrongRank
-
+				wrongRankToRender: wrongRank,
+				scoreToRender: score
 			}
 		)
 
@@ -97,3 +100,7 @@ module.exports = router;
 
 
 // query to eliminate imags that have already been shown on the page 
+
+// SELECT * FROM images WHERE id NOT IN 
+	// (SELECT imageID FROM votes WHERE ip= "::1")
+

@@ -30,9 +30,14 @@
 		<a href='testKnowledge/correctAnswer'><button onClick="increaseScore()"id='correct-answer'>
 			<%=playerRankToRender%>
 		</button></a>
-		<a href='testKnowledge/wrongAnswer'><button id='wrong-answer'>wrong</button></a>
+		<a href='testKnowledge/wrongAnswer'><button id='wrong-answer'>
+			<%=wrongRankToRender%>
+		</button></a>
 	</div>
 
-	<div class='score'></div>
+	<div class='score'>
+		Score: <%=scoreToRender%> / 10 
+
+	</div>
 </body>
 </html>
