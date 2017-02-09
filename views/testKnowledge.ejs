@@ -6,12 +6,7 @@
 </head>
 <body>
 	
-	<script type="text/javascript">
-		var score = 0; 
-		function increaseScore(){
-			score++;
-			console.log(score);
-		}
+
 	</script>
 
 	<div class='greeting'>Welcome! Test your knowledge on the latest ATP Rankings!</div>
@@ -27,11 +22,15 @@
 			</div>
 		</div>
 
-		<a href='testKnowledge/correctAnswer'><button onClick="increaseScore()"id='correct-answer'>
+		<a href='testKnowledge/correctAnswer'><button id='correct-answer'>
 			<%=playerRankToRender%>
 		</button></a>
 		<a href='testKnowledge/wrongAnswer'><button id='wrong-answer'>
 			<%=wrongRankToRender%>
+		</button></a>
+
+		<a href='testKnowledge/reset'><button id='wrong-answer'>
+			Reset Test
 		</button></a>
 	</div>
 
